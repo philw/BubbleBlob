@@ -25,6 +25,7 @@ Partial Class MainForm
         Me.components = New System.ComponentModel.Container()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.LabelN = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -32,7 +33,7 @@ Partial Class MainForm
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.LightBlue
         Me.PictureBox1.Location = New System.Drawing.Point(28, 29)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(695, 424)
         Me.PictureBox1.TabIndex = 0
@@ -43,20 +44,33 @@ Partial Class MainForm
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 10
         '
+        'LabelN
+        '
+        Me.LabelN.AutoSize = True
+        Me.LabelN.Location = New System.Drawing.Point(52, 471)
+        Me.LabelN.Name = "LabelN"
+        Me.LabelN.Size = New System.Drawing.Size(60, 13)
+        Me.LabelN.TabIndex = 1
+        Me.LabelN.Text = "MoveN = 0"
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(756, 518)
+        Me.Controls.Add(Me.LabelN)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "MainForm"
         Me.Text = "Bubbles"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents LabelN As System.Windows.Forms.Label
 End Class

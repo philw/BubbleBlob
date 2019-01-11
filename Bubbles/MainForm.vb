@@ -2,13 +2,13 @@
 
     Dim Bubble1 As Bubble
     Dim Bubble2 As Bubble
-    Dim Player As Blob
+    Dim Player As Player
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Bubble1 = New Bubble()
         Bubble2 = New Bubble()
-        Player = New Blob(200, 200, 20)
+        Player = New Player(200, 200, 20)
 
     End Sub
 
@@ -29,26 +29,43 @@
 
     End Sub
 
-    Private Sub MainForm_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
+
+    Private Sub MainForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
 
         Dim Key As Char
 
-        Key = e.KeyChar.ToString.ToUpper
+        Key = e.KeyCode.ToString.ToUpper
 
         Select Case Key
             Case "W"
-                Player.ChangeDirection("N")
+                Player.StartMove("N")
             Case "A"
-                Player.ChangeDirection("W")
+                Player.StartMove("W")
             Case "S"
-                Player.ChangeDirection("S")
+                Player.StartMove("S")
             Case "D"
-                Player.ChangeDirection("E")
-            Case "X"
-                Player.ChangeDirection("X")
-
+                Player.StartMove("E")
         End Select
 
+    End Sub
+
+    Private Sub MainForm_KeyUp(sender As Object, e As KeyEventArgs) Handles MyBase.KeyUp
+
+        Dim Key As Char
+
+        Key = e.KeyCode.ToString.ToUpper
+
+        Select Case Key
+            Case "W"
+                Player.StopMove("N")
+            Case "A"
+                Player.StopMove("W")
+            Case "S"
+                Player.StopMove("S")
+            Case "D"
+                Player.StopMove("E")
+        End Select
 
     End Sub
+
 End Class
